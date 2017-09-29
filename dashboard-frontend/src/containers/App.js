@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   render() {
-    const  users  = this.props;
+    const  users  = this.props.users;
     return (
         <div className="App">
           { users === null ?  "로딩중": JSON.stringify(users) }

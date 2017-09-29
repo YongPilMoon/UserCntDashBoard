@@ -9,6 +9,6 @@ module.exports = {
     const finishDayTS = new Date(finishDay).getTime();
     const period = user => user.date >= startDayTS && user.date <= finishDayTS;
     const filteredUsers = _(users).filter(period);
-    res.send(filteredUsers);
+    res.json(filteredUsers);
   }
 };
