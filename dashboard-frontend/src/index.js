@@ -3,5 +3,14 @@ import ReactDOM from 'react-dom';
 import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// redux 설정
+import configureStore from './redux/configureStore';
+import { Provider } from 'react-redux';
+
+const store = configureStore();
+ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.getElementById('root'));
 registerServiceWorker();
