@@ -56,7 +56,7 @@ class Chart extends Component{
               title:{
                 display:this.props.displayTitle,
                 text:'시간당 사용자 수 라인 차트',
-                fontSize:25
+                fontSize:20
               },
               legend:{
                 display:this.props.displayLegend,

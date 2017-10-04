@@ -8,8 +8,9 @@ const UserCntTable = ({users}) => {
   .toArray()
   .value();
   return (
-      <div>
+      <div id="user-cnt-table-wrapper">
         <table>
+          <caption id="user-cnt-table-capture">시간당 사용자 수 테이블</caption>
           <thead>
           <tr>
             <th>시간</th>
@@ -41,12 +42,18 @@ const UserCntTable = ({users}) => {
           </thead>
           <tbody>
           { _.map(usersForTable, (usersPerHour, index) =>
-              <tr>
-                <td>{ usersPerHour[index].date }</td>
+              <tr key={index}>
+                <td className="date-row">{ usersPerHour[index].date }</td>
                 { index === 0 ? _.range(12).map(i => <td key={i}> </td>) :  null }
                 { usersPerHour.map(user =>
-                    <td>{
-                      <div> { user.totalUserCnt }<br/>And {user.androidUserCnt}<br/>iOS {user.iosUserCnt}</div>
+                    <td key={user.date + user.time}>{
+                      <div>
+                        <span className="total-user-cnt">{ user.totalUserCnt }</span>
+                        <span className="device-cnt">
+                          <br/>And {user.androidUserCnt}
+                          <br/>iOS {user.iosUserCnt}
+                        </span>
+                      </div>
                     }
                     </td>) }
               </tr>

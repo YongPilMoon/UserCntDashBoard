@@ -1,0 +1,35 @@
+#user-cnt-table-wrapper{
+  margin-top: 5rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  text-align: center;
+
+  #user-cnt-table-capture{
+    font-size: 20px;
+    font-weight: bold;
+    color: #606060;
+    margin: 0.5rem;
+  }
+
+  th {
+    background-color: #dee2e6;
+  }
+  .date-row{
+    background-color: #dee2e6;
+  }
+  .total-user-cnt {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .device-cnt {
+    color: #495057;
+  }
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+

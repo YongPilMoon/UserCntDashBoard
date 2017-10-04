@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import Chart from '../Components/UserCntChart';
+import Chart from '../components/UserCntChart';
 //redux
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as user from '../redux/modules/user';
-import UserCntTable from '../Components/UserCntTable';
+import UserCntTable from '../components/UserCntTable';
+import Container from '../components/Container';
 
 class App extends Component {
   componentDidMount() {
@@ -16,8 +17,10 @@ class App extends Component {
     const  users  = this.props.users;
     return (
         <div className="App">
-          { users === null ?  "로딩중":  <UserCntTable users={users}/> }
-          { users === null ?  "로딩중":  <Chart users={users}/> }
+          <Container>
+            { users === null ?  "로딩중":  <Chart users={users}/> }
+            { users === null ?  "로딩중":  <UserCntTable users={users}/> }
+          </Container>
         </div>
     );
   }
