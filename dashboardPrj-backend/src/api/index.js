@@ -2,6 +2,6 @@ const express = require('express');
 const router = express.Router();
 const controller = require('./controller');
 
-router.get('/users/from/:startDay/to/:finishDay', controller.users);
+router.get('/users/sevenData/:untilDate', controller.users);
 
 module.exports = router;
