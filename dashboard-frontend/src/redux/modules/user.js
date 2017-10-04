@@ -9,9 +9,9 @@ const GET_USERS_FULFILLED = 'modules/GET_USERS_FULFILLED';
 const GET_USERS_REJECTED = 'modules/GET_USERS_REJECTED';
 
 // 액션 생성자
-export const getUsers = (startDay, finishDay) => ({
+export const getUsers = (untilDate) => ({
   type: GET_USERS,
-  payload: userApi.getUsers(startDay, finishDay)
+  payload: userApi.getUsers(untilDate)
 });
 
 const initialState = Map({
@@ -34,7 +34,6 @@ export default handleActions({
   },
   [GET_USERS_FULFILLED]: (state, action) => {
     const users = action.payload.data;
-    console.log(action.payload.data);
     return state.mergeIn(['users'], {
       pending: false,
       isLoading: false,
