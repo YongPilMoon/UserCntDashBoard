@@ -1,0 +1,14 @@
+.header-wrapper {
+  background-color: white;
+  height: 4rem;
+  border-bottom: 1px $brand-color-border solid;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  .header {
+    margin: 0 auto;
+    width: 1200px;
+    height: 4rem;
+  }
+}
