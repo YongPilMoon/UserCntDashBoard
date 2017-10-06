@@ -1,5 +1,6 @@
 const users  = require('../database');
 const _ = require('lodash');
+const helper = require('../helper');
 
 module.exports = {
   users: (req, res) => {
@@ -10,6 +11,7 @@ module.exports = {
      * 한국 timezone으로 변환하면 2017-09-27 +9시가 돤다.
      * 때문에 실제 한국 timezone으로 변환 했을 때 2017-9-21이 되는 시간을 얻으려면 9시간을 빼주어야 한다.
      */
+
     const finishDateTS = new Date(untilDate).getTime() - 9 * 3600000 + 12 * 3600000;
     const startDateTS = finishDateTS - 3600000 * 24 * 7;
 
@@ -21,7 +23,7 @@ module.exports = {
       const month = dateObj.getMonth() + 1;
       const date = dateObj.getDate();
       const hours = dateObj.getHours();
-      return `${year}-${month}-${date}-${hours}`;
+      return `${year}-${helper.addZ(month)}-${helper.addZ(date)}-${helper.addZ(hours)}`;
     };
 
     const makeUserPerHourObj = (users, key) => {
